@@ -1,0 +1,10 @@
+/* Write your custom CSS here */
+.tr-card-icon{
+    width: auto;
+    height: auto;
+}
+.btn {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+}

@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-xl-12">
+        <div class="profile-cover"></div>
+        <div class="profile-header">
+        <div class="profile-img">
+            <img src="/{{img}}" alt="" />
+        </div>
+        <div class="profile-name">
+            <h3>{{users.name}}</h3>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12 col-lg-8">
+        <div class="card">
+        <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                                <form class="row g-3 needs-validation" action="/userprofile?_csrf={{csrf}}" method="post" enctype="multipart/form-data">
+                                    <div class="col-md-4">
+                                    <label for="validationCustom01" class="form-label">Имя</label>
+                                    <input type="text" class="form-control" name="name" id="validationCustom01"  required="">
+                                    {{!-- <div class="valid-feedback">
+                                        Looks good!
+                                    </div> --}}
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label for="validationCustom02" class="form-label">Фамилия</label>
+                                    <input type="text" class="form-control" name="lname" id="validationCustom02"  required="">
+                                    {{!-- <div class="valid-feedback">
+                                        Looks good!
+                                    </div> --}}
+                                    </div>
+                                    <div class="col-md-4">
+                                    <label for="validationCustomUsername" class="form-label">Почта</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        <input type="mailto" class="form-control" name="email" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
+                                        <div class="invalid-feedback">
+                                        Please choose a username.
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label for="validationCustom03" class="form-label">Фото админа</label>
+                                    <input class="form-control" name="img" type="file" id="img" multiple="">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                    </div>
+                                    {{!-- <div class="col-md-3">
+                                    <label for="validationCustom04" class="form-label">State</label>
+                                    <select class="form-select" id="validationCustom04" required="">
+                                        <option selected="" disabled="" value="">Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid state.
+                                    </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <label for="validationCustom05" class="form-label">Zip</label>
+                                    <input type="text" class="form-control" id="validationCustom05" required="">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid zip.
+                                    </div>
+                                    </div> --}}
+                                    <div class="col-12">
+                                    </div>
+                                    <div class="col-12">
+                                            <div class="modal-footer p-0">
+                                                <button type="submit" class="btn btn-primary">Изменить</button>
+                                            </div>
+                                
+                                    </div>
+                                </form>
+                            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Contact Info</h5>
+            <ul class="list-unstyled profile-about-list">
+            <li><i class="far fa-envelope m-r-xxs"></i><span
+                >johan.doe@gmail.com</span></li>
+            <li><i class="far fa-compass m-r-xxs"></i><span>Lives in
+                <a href="#">San Francisco, CA</a></span></li>
+            <li><i class="far fa-address-book m-r-xxs"></i><span>+1 (678) 290 1680</span></li>
+            </ul>
+        
+        </div>
+    </div>
+</div>
