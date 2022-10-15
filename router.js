@@ -16,6 +16,8 @@ router.use("/feedback", require("./router/feedback"));
 router.use("/vacancy", require("./router/vacancy"));
 router.use("/oneclick", require("./router/oneclick"));
 router.use("/userprofile", require("./router/userprofile"));
+router.use("/frontuser", require("./router/frontuser"));
+
 
 
 

@@ -122,7 +122,7 @@ router.post("/", auth,  async (req, res) => {
     feedback = feedback || 0;
     let newPage = await Page({title,text,status,slug,menu,feedback,
     });
-    await newPage.save();
+    await newPage.save();  
     res.redirect("/page");
 });  
 

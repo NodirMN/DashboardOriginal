@@ -30,7 +30,7 @@
         <tbody>
             {{#each products}}
                 <tr>
-                    <td><img src="/{{img}}" width="50"></td>
+                    <td> <a href="#"><img src="/{{img}}" width="50" border-radius="50px"></a></td>
                     <td>{{title}}</td>
                     <td>{{category.title}}</td>
                     <td>{{price}} so'm</td>
@@ -64,8 +64,8 @@
                         <li class="page-item">
                             <a class="page-link " href="?p={{n}}"><<</a></li>
                         {{/paginate}}
-                    {{#paginate pagination type="middle" }}
-                        <li class="page-item"><a class="page-link" href="?p={{n}}">{{n}}</a></li>
+                    {{#paginate pagination type="middle"  limit=pagination.pageCount }}
+                        <li {{#if active}} class="page-item active" {{/if}} ><a class="page-link" href="?p={{n}}">{{n}}</a></li>
                     {{/paginate}}
                         {{#paginate pagination type="next"}}
                         <li class="page-item "><a class="page-link" href="?p={{n}}">>></a></li>

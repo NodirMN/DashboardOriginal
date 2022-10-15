@@ -10,10 +10,10 @@ Handlebars.registerHelper("paginate", paginate);
 const upload = require('../middleware/file')
 
 router.get('/',auth,async(req,res)=>{
-    const perPage = 20;
-    const page = req.query.p;
+    let perPage = 10;
+    let page = req.query.p;
     let category = await Category.find().lean()
-    let products = await Product.find().populate('category').populate('attribute.attribute').sort({_id:-1}).limit(perPage).skip((perPage * page) - perPage).lean()
+    let products = await Product.find().populate('category').populate('attribute.attribute').sort({_id:-1}).limit(perPage).skip((perPage * page) - perPage).lean()  
     products = products.map(product=>{
         product.img = product.photos[0]
             product.status = product.status == 1 ? '<span class="badge bg-success">Продукт доступен</span>'
@@ -29,15 +29,15 @@ router.get('/',auth,async(req,res)=>{
 
         return product
     })
-    res.render("product/index", {  
-            isProduct: true,
-            products,
-            category,
-            title: "Список продуктов",
-            pagination: {
-                page: req.query.p,
-                pageCount: 15,
-            },
+    res.render("product/index", {
+        isProduct: true,
+        products,
+        category,
+        title: "Список продуктов",
+        pagination: {
+            page: req.query.p || 1,
+            pageCount: perPage,
+        },
     });
 })
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require("mongoose");
-const csrf = require("csurf");
+// const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const varMiddle = require('./middleware/var')
@@ -13,8 +13,8 @@ const flash = require('connect-flash');
 
 
 
-
-
+//////////////////////////////key papka
+const key = require('./key/key')
 
 ///////////////////////////////EXPRESS
 
@@ -38,16 +38,16 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 ////////////////////////////////////////////////
-const MONGODB_URI  = 'mongodb://127.0.0.1:27017/magazin'
+const MONGODB_URI  = ''
 let store = new MongoDBStore({
-    uri: MONGODB_URI,
+    uri: key.MONGODB_URI,
     collection: "mySessions",
 });
 
 ////////////////////////////////Sessiya saqlash
 app.use(
     session({
-        secret: "keyboard cat",
+        secret: key.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
         // cookie: { secure: true },
@@ -59,7 +59,7 @@ app.use(
 /////////////////////////////////
 
 app.use(cookieParser());
-app.use(csrf({ cookie: true }));
+// app.use(csrf({ cookie: true }));
 app.use(flash());
 
 /////////////////////////////
@@ -92,7 +92,7 @@ app.use(routerList)
 
 async function dev(){   
     try {      
-        await mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+        await mongoose.connect(key.MONGODB_URI, { useNewUrlParser: true });
         app.listen(3000,()=>{
             console.log("Server is running ==> http://localhost:3000/");
         })

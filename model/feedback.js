@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const feedback = new Schema({
     name: String,
     text: String,
-    phone: String,
+    // phone: String,
     createdAt: { 
         type: Date,
         default: Date.now(),

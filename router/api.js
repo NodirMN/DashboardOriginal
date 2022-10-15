@@ -55,15 +55,15 @@ router.get('/blog/get/:id', async(req,res)=>{
 
 })
 /////////////////////////////////////email
-router.get('/user/checkemail/:email', async(req,res)=>{
-    let {email} = req.params
-    let checkUser = await User.findOne({email})
-    if (checkUser) {
-        res.send('bad')
-    }else{
-        res.send('good')
-    }
-})
+// router.get('/user/checkemail/:email', async(req,res)=>{
+//     let {email} = req.params
+//     let checkUser = await User.findOne({email})
+//     if (checkUser) {
+//         res.send('bad')
+//     }else{
+//         res.send('good')
+//     }
+// })
 
 /////////////////////////////////////phone
 router.get('/user/checkphone/:phone', async(req,res)=>{
@@ -77,18 +77,18 @@ router.get('/user/checkphone/:phone', async(req,res)=>{
 })
 
 /////////////////////////////////////////
-router.post("/user/reg", async (req, res) => {
-    try {
-        let {name,phone,email,password} = req.body
-        let hashpass = await bcrypt.hash(password,10)
-        let newUser = await new User({ name, phone, email, password:hashpass });
-        await newUser.save()
-        res.send('ok')
-    } catch (error) {
-        res.send(error);
-    }
+// router.post("/user/reg", async (req, res) => {
+//     try {
+//         let {name,phone,email,password} = req.body
+//         let hashpass = await bcrypt.hash(password,10)
+//         let newUser = await new User({ name, phone, email, password:hashpass });
+//         await newUser.save()
+//         res.send('ok')
+//     } catch (error) {
+//         res.send(error);
+//     }
 
-});
+// });
 
 ////////////////////////////////
 

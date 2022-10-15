@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const oneclick = new Schema({
     name: String,
     address: String,
-    phone: String,
+    // phone: String,
     createdAt: {
         type: Date,  
         default: Date.now(),

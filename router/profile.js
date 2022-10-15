@@ -12,30 +12,29 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/save", async (req, res) => {
-        const { _id, name, lname, email } = req.body;
-        const chekUser = await User.findOne({
-            email,
-            _id: { $ne: _id },
-        });
-        if (chekUser) {
-            req.flash("error", "Bunday emaildagi foydalanuvchi mavjud");
-            res.redirect("/profile/");
-        } else {
-            const user = await User.findOne({
-            _id,
-            });
-            if (req.file) {
-            const img = req.file.path;
-            user.img = img;
-            }
-            user.name = name;
-            user.lname = lname;
-            user.email = email;
-            await user.save();
-            req.session.user = user;
-            req.flash("success", "Ma`lumot yengilandi!");
-            res.redirect("/profile");
-        }
-});
+// router.post("/save", async (req, res) => {
+//         const { _id, name, lname } = req.body;
+//         const chekUser = await User.findOne({
+//             email,
+//             _id: { $ne: _id },
+//         });
+//         if (chekUser) {
+//             req.flash("error", "Bunday emaildagi foydalanuvchi mavjud");
+//             res.redirect("/profile/");
+//         } else {
+//             const user = await User.findOne({
+//             _id,
+//             });
+//             if (req.file) {
+//             const img = req.file.path;
+//             user.img = img;
+//             }
+//             user.name = name;
+//             user.lname = lname;
+//             await user.save();
+//             req.session.user = user;
+//             req.flash("success", "Ma`lumot yengilandi!");
+//             res.redirect("/profile");
+//         }
+// });
 module.exports = router;
